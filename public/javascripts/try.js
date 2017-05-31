@@ -45,8 +45,8 @@ function sendData(sid, id, type){
 
             // console.log("yoyo");
             document.getElementById('cart').innerHTML = response.count+' item(s) - Rs.' + response.totalAmount;
-            $(".summary").load("summary.pug");
-            $(".summary").show(1000);
+            // $(".summary").load("summary.pug");
+            // $(".summary").show(1000);
             //do something after something is received from php
         },
         //on error
@@ -58,6 +58,6 @@ function sendData(sid, id, type){
     });
 }
 
-$(document).ready(function () {
-   $('.summary').hide();
-});
+// $(document).ready(function () {
+//    $('.summary').hide();
+// });

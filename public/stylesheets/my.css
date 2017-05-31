@@ -1,0 +1,38 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    width:auto;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.main{
+    height:auto;
+    width: 800px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    border-style: solid;
+    border-color: #ff0000 #0000ff;
+    padding:10px;
+}
+
+.header{
+    height:20px;
+    background-color:blue;
+    border-style:solid;
+}
+
+.product{
+    display: inline-block;
+    width:30%;
+    border-style: solid;
+    border-color: #ff0000 #0000ff;
+    margin:10px;
+}
+
+.cart_div{
+    position:relative;
+    float:right;
+}

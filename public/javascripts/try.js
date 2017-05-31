@@ -44,13 +44,9 @@ function sendData(sid, id, type){
             }
 
             // console.log("yoyo");
-            console.log(response);
-            console.log("id= "+id);
-            console.log("count= "+response.count);
-            console.log("amount= "+response.totalAmount);
-            console.log("success\n");
             document.getElementById('cart').innerHTML = response.count+' item(s) - Rs.' + response.totalAmount;
-
+            $(".summary").load("summary.pug");
+            $(".summary").show(1000);
             //do something after something is received from php
         },
         //on error
@@ -64,9 +60,4 @@ function sendData(sid, id, type){
 
 $(document).ready(function () {
    $('.summary').hide();
-});
-
-$(".send").click(function(){
-    // alert("krishna");
-    $(".summary").show(1000);
 });

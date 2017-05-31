@@ -61,9 +61,9 @@ app.get('/:place', function (req, res) {
             }
 
             console.log(body.cart);
-
-            var cart_ids = JSON.stringify(cart_ids);
-            res.render('native.pug', {location: req.params.place, product_name: body.products, cart_items:cart_ids, cart_products:body.cart, item_count:body.count, amount: body.totalAmount, sid: sid});
+            cart_ids = JSON.stringify(cart_ids);
+            res.render('native.pug', {location: req.params.place, product_name: body.products,
+                cart_items:cart_ids, cart_products:body.cart, item_count:body.count, amount: body.totalAmount, sid: sid});
         }
     });
 });

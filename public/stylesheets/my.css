@@ -19,6 +19,7 @@ a {
 }
 
 .header{
+    width: inherit;
     height:20px;
     background-color:blue;
     border-style:solid;

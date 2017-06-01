@@ -1,9 +1,9 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var request = require('request');
-var cors =  require('cors');
-var session = require('express-session');
-var app = express({mergeParams: true});
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
+const cors = require('cors');
+const session = require('express-session');
+const app = express({mergeParams: true});
 
 
 
@@ -44,23 +44,24 @@ app.use(session({secret: 'ssshhhhh'}));
 
 app.get('/:place', function (req, res) {
 
-    var sid = req.query.sid;
+    const sid = req.query.sid;
     request('http://api.test.nativebag.in/v1/product/exists?locationA=Tuticorin&locationB='+req.params.place+'&sid='+sid,
         function (error, response, body) {
         if (!error && response.statusCode == 200) {
             body = JSON.parse(body);
 
-            var cart_ids = [];
-            var totalMessages = Object.keys(body.cart).length;
-            for ( var i = 0; i < totalMessages; i++)
-            {
-                console.log("ID: " + body.cart[i].product_id);
-                    cart_ids.push(body.cart[i].product_id);
-                    console.log(cart_ids);
-                    console.log(JSON.stringify(cart_ids));
-            }
-
             console.log(body.cart);
+            var cart_ids = [];
+            if(body.cart != null) {
+                const totalMessages = Object.keys(body.cart).length;
+                for (var i = 0; i < totalMessages; i++) {
+                    // console.log("ID: " + body.cart[i].product_id);
+                    cart_ids.push(body.cart[i].product_id);
+                    // console.log(cart_ids);
+                    console.log(JSON.stringify(cart_ids));
+                }
+            }
+            console.log(body.count);
             cart_ids = JSON.stringify(cart_ids);
             res.render('native.pug', {location: req.params.place, product_name: body.products,
                 cart_items:cart_ids, cart_products:body.cart, item_count:body.count, amount: body.totalAmount, sid: sid});

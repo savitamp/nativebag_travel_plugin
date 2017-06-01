@@ -31,13 +31,10 @@ html
                         button.send#send(class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width:100%" request-type = "remove" button-id = prod.id, onclick="sendData(\""+sid+"\", document.getElementById("+prod.id+").innerHTML, document.getElementById("+prod.id+").getAttribute(\"request-type\"));") Add to Cart
             div.cart_div
                 button.cart#cart(onclick= "window.open('http://test.nativebag.in/cart/cart-details?sid="+sid+"', '_blank')") #{item_count} items - Rs.#{amount}
+    if (cart_products != null)
         div.summary.main#summary
             each item in cart_products
-                p abc
-                p krish
-            //p #{item.name}
-            //p #{item.price}
-            //p #{item.id}
-
+                p #{item.product_name}
+                p #{item.price}
 
 script(src='http://localhost:3000/javascripts/try.js')
